@@ -107,15 +107,15 @@ function watch() {
     });
 
     // Watch .scss files
-    gulp.watch(config.PATHS.src + '/scss/**/*.scss', styles);
+    gulp.watch(config.PATHS.src + '/sass/**/*.sass', styles);
     // Watch .js files
     gulp.watch(config.PATHS.src + '/js/**/*.js', scripts);
-    // Watch any view files in 'views', reload on change
-    gulp.watch(['themes/bourbon/views/**/*.jade']).on('change', browsersync.reload);
-    gulp.watch(['themes/bourbon/views/**/*.php']).on('change', browsersync.reload);
+    // Watch templates
+    gulp.watch(config.PATHS.templates, templates);
     // Watch any files in 'assets/dist', reload on change
     gulp.watch([config.PATHS.dist + '/js/*']).on('change', browsersync.reload);
     gulp.watch([config.PATHS.dist + '/css/*']).on('change', browsersync.reload);
+    gulp.watch([config.PATHS.dist + '/index.html']).on('change', browsersync.reload);
 };
 
 // Default task runs build and then watch
