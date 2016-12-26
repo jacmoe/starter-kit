@@ -100,7 +100,10 @@ function watch() {
 
     // Initialize Browsersync
     browsersync.init({
-	proxy: config.PROXY
+	server: {
+	    baseDir: config.PATHS.dist
+	}
+	//proxy: config.PROXY
     });
 
     // Watch .scss files
