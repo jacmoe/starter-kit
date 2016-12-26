@@ -28,6 +28,23 @@ var autoprefixerOptions = {
     browsers: config.COMPATIBILITY
 };
 
+// Templates
+function templates() {
+    return gulp.src(config.PATHS.templates)
+	.pipe($.pug())
+    //.pipe(gulp.dest(pug_callback))
+	.pipe(gulp.dest(config.PATHS.dist));
+};
+
+function pug_callback(file) {  
+    if (file.path.search('index') !== -1) {
+	return './www/app/';
+    }
+    var folder = path.basename(file.path).replace(/\..*html/, '/');
+    return './www/app/' + folder;
+}
+
+
 // Styles
 function styles() {
     return gulp.src(config.PATHS.src +'/sass/app.sass')
@@ -70,11 +87,12 @@ function clean(done) {
     rimraf(config.PATHS.dist, done);
 }
 
+
 // The main build task
 gulp.task('build', gulp.series(
     clean,
     //gulp.parallel(styles, scripts, fonts, images)
-    gulp.parallel(styles)
+    gulp.parallel(styles, templates)
 ));
 
 // Watch
@@ -106,3 +124,4 @@ gulp.task('fonts', fonts);
 gulp.task('images', images);
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
+gulp.task('templates', templates);

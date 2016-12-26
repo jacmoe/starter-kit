@@ -8,17 +8,20 @@ COMPATIBILITY:
 
 # Gulp will reference these paths when it copies files
 PATHS:
-  # Path to dist folder
+  # Dist folder
   dist: "dist"
-  # Path to source folder
+  # Source folder
   src: "src"
+  # Templates
+  templates:
+    - "src/templates/**/*.pug"
   # Paths to fonts
   fonts:
     - "src/assets/fonts/**/*"
-  # Paths to images
+  # Images
   images:
     - "src/assets/img/**/*"
-  # Paths to Sass libraries, which can then be loaded with @import
+  # Sass libraries, which can then be loaded with @import
   sass:
     - "bower_components/bourbon/app/assets/stylesheets"
     - "bower_components/neat/app/assets/stylesheets"
