@@ -1,0 +1,29 @@
+# Your project's server will run on proxy
+PROXY: "https://local.jacmoe.dk"
+
+# Autoprefixer will make sure your CSS works with these browsers
+COMPATIBILITY:
+  - "last 2 versions"
+  - "ie >= 9"
+
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to dist folder
+  dist: "dist"
+  # Path to source folder
+  src: "src"
+  # Paths to fonts
+  fonts:
+    - "src/assets/fonts/**/*"
+  # Paths to images
+  images:
+    - "src/assets/img/**/*"
+  # Paths to Sass libraries, which can then be loaded with @import
+  sass:
+    - "bower_components/bourbon/app/assets/stylesheets"
+    - "bower_components/neat/app/assets/stylesheets"
+    - "bower_components/font-awesome/scss"
+  # Paths to JavaScript libraries, which are combined into one file
+  javascript:
+    - "bower_components/jquery/dist/jquery.js"
+
